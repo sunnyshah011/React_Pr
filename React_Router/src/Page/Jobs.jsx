@@ -6,13 +6,13 @@ const Jobs = () => {
     const loaddata = useLoaderData();
     
   return (
-    <div>
+    <div className='job-center'>
     {loaddata.map((job)=>{
         return(
-            <div>
-                <h4>{job.id}</h4>
-                {job.title}
-                {job.salary}
+            <div className='job'>
+                <p>{job.id}</p>
+                <p>{job.title}</p>
+                <p>{job.salary}</p>
             </div>
         )
     })}
