@@ -1,28 +1,32 @@
-import { Route, Routes } from "react-router-dom";
+import { createBrowserRouter, createRoutesFromElements, Route, Routes,RouterProvider } from "react-router-dom";
 import Home from "./Page/Home";
 import About from "./Page/About";
 import Dashboard from "./Page/Dashboard";
-import Navbar from "./Components/Navbar";
 import PageNotFound from './Page/PageNotFound'
+import RootLayout from "./Components/RootLayout";
 
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<RootLayout />} >
+      <Route path='/' element={<Home />} />
+      <Route path='/about' element={<About />} />
+      <Route path='/dashboard' element={<Dashboard />} />
+      <Route path='*' element={<PageNotFound />} />
+    </Route>
+  )
+)
 
 const App = () => {
-    return(
-      <div>
-        <Navbar />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/dashboard' element={<Dashboard />} />
-            <Route path='*' element={<PageNotFound />} />
-          </Routes>
-      </div>
+  return (
+    <RouterProvider router={router} />
     )
 };
 
 export default App;
 
 
+
+// CREATING BROWSERROUTER -----------------------------------------------------------------------------
 // import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // import Home from "./Page/Home";
 // import About from "./Page/About";
@@ -79,6 +83,34 @@ export default App;
 
 // const App = () => {
 //   return <RouterProvider router={router} />;
+// };
+
+// export default App;
+
+
+
+// BROWSER ROUTER-------------------------------------------------------------------
+
+// import { Route, Routes } from "react-router-dom";
+// import Home from "./Page/Home";
+// import About from "./Page/About";
+// import Dashboard from "./Page/Dashboard";
+// import Navbar from "./Components/Navbar";
+// import PageNotFound from './Page/PageNotFound'
+
+
+// const App = () => {
+//     return(
+//       <div>
+//         <Navbar />
+//           <Routes>
+//             <Route path='/' element={<Home />} />
+//             <Route path='/about' element={<About />} />
+//             <Route path='/dashboard' element={<Dashboard />} />
+//             <Route path='*' element={<PageNotFound />} />
+//           </Routes>
+//       </div>
+//     )
 // };
 
 // export default App;
