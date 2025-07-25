@@ -1,0 +1,19 @@
+{
+  "jobs": [
+    {
+      "id": 1,
+      "title": "fronted",
+      "salary": "99999"
+    },
+    {
+      "id": 2,
+      "title": "backend",
+      "salary": "88888"
+    },
+    {
+      "id": 3,
+      "title": "cloud",
+      "salary": "77777"
+    }
+  ]
+}

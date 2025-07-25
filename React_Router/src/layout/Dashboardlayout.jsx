@@ -1,14 +1,14 @@
 import React from 'react'
-import Navbar from './Navbar'
+import Dashboard from '../Page/Dashboard'
 import { Outlet } from 'react-router-dom'
 
-const RootLayout = () => {
+const Dashboardlayout = () => {
   return (
     <div>
-      <Navbar />
+      <Dashboard />
       <Outlet />
     </div>
   )
 }
 
-export default RootLayout
+export default Dashboardlayout
