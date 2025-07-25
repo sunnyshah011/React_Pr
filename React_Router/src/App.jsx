@@ -13,18 +13,21 @@ import Dashboardform from "./Components/Dashboardform";
 import Dashboardlayout from "./layout/Dashboardlayout";
 import Joblayout from "./layout/Joblayout";
 import Jobs, { jobsloader } from "./Page/Jobs";
+import Jobdetails, { jobdetails } from "./Components/Jobdetails";
+import Errorpage from "./Components/Errorpage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      <Route path="/" element={<Home />} />
+      <Route index element={<Home />} />
       <Route path="/about" element={<About />} />
       <Route path="/dashboard" element={<Dashboardlayout />}>
         <Route path="info" element={<Dashboardinfo />} />
         <Route path="form" element={<Dashboardform />} />
       </Route>
-      <Route path="/job" element={<Joblayout />}>
+      <Route path="/job" element={<Joblayout />} errorElement={<Errorpage />} >
         <Route index element={<Jobs />} loader={jobsloader} />
+        <Route path=":id" element={<Jobdetails />} loader={jobdetails} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Route>
